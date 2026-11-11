@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>文本对比 · Text Diff</title>
+<meta name="author" content="深维工坊工作室 Deep Dimension Workshop">
+<meta name="copyright" content="深维工坊工作室 Deep Dimension Workshop">
+<meta name="description" content="逐行与逐字对比两段文本，高亮每一处改动。">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><i></i><i></i></span>
+      <div class="brand-text">
+        <h1>文本对比</h1>
+        <p>逐行与逐字对比，改动一目了然</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <button class="btn btn-ghost" id="sample-btn" type="button">载入示例</button>
+      <button class="btn btn-ghost" id="swap-btn" type="button">交换两边</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+
+    <section class="inputs">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>原文</h2>
+          <span class="count" id="count-a">0 行</span>
+        </div>
+        <textarea id="text-a" spellcheck="false" placeholder="把原始文本粘贴到这里"></textarea>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2>新文</h2>
+          <span class="count" id="count-b">0 行</span>
+        </div>
+        <textarea id="text-b" spellcheck="false" placeholder="把修改后的文本粘贴到这里"></textarea>
+      </div>
+    </section>
+
+    <section class="panel result">
+      <div class="panel-head">
+        <h2>差异</h2>
+        <div class="head-actions">
+          <label class="check"><input type="checkbox" id="ignore-case"> 忽略大小写</label>
+          <label class="check"><input type="checkbox" id="ignore-space"> 忽略空白</label>
+          <button class="btn btn-ghost" id="copy-btn" type="button">复制差异</button>
+        </div>
+      </div>
+
+      <div class="statbar" id="statbar"></div>
+
+      <div class="diff" id="diff"></div>
+
+      <div class="result-foot">
+        <span id="result-note">两边都填上内容后，差异会显示在这里</span>
+        <span id="action-note"></span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>文本对比 · 开源版</span>
+    <span>© 2026 深维工坊工作室 Deep Dimension Workshop · MIT License</span>
+  </footer>
+
+</div>
+
+<script src="assets/js/diff-core.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
